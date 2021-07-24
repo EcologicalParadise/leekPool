@@ -326,7 +326,7 @@ function openTime() {
                                tr += `
                                <div>
                                     <span>${formatAddress(_v)}</span>
-                                    <span>${openReward}&nbsp;leeks</span>
+                                    <span>${openReward}&nbsp;leek</span>
                                 </div>
                                `
                             })
@@ -341,22 +341,22 @@ function openTime() {
                              <div>
                                  <span>抢头奖：</span>
                                  <span>${formatAddress(openUser)}</span>
-                                 <span>${openReward}&nbsp;leeks</span>
+                                 <span>${openReward}&nbsp;leek</span>
                              </div>
                             <div>
                                  <span>韭神：</span>
                                  <span>${formatAddress(luckDog1)}</span>
-                                 <span>${luckDogReward1}&nbsp;leeks</span>
+                                 <span>${luckDogReward1}&nbsp;leek</span>
                             </div>
                             <div>
                                  <span>韭仙：</span>
                                  <span>${formatAddress(luckDog2)}</span>
-                                 <span>${luckDogReward2}&nbsp;leeks</span>
+                                 <span>${luckDogReward2}&nbsp;leek</span>
                              </div>
                              <div>
                                  <span>韭鬼：</span>
                                  <span>${formatAddress(luckDog3)}</span>
-                                 <span>${luckDogReward3}&nbsp;leeks</span>
+                                 <span>${luckDogReward3}&nbsp;leek</span>
                              </div>
                              <p class='history-dog-luckname'>幸运奖励</p>
                             ${tr}
@@ -417,14 +417,14 @@ function openTime() {
                     } = data[data.length - 2];
                     loading.addClass('luck-open-box');
                     loadingIng.hide();
-                    luckOpenMes.html(`恭喜你，抢到头奖!</br>获取${openReward}leeks`);
+                    luckOpenMes.html(`恭喜你，抢到头奖!</br>获取${openReward}leek`);
                     luckOpen.css('display', 'flex');
                     luckOpenOther.html(`
-                    第1名：${formatAddress(luckDog1)} 获取 ${luckDogReward1}leeks
+                    第1名：${formatAddress(luckDog1)} 获取 ${luckDogReward1}leek
                     <br>
-                    第2名：${formatAddress(luckDog2)} 获取 ${luckDogReward2}leeks
+                    第2名：${formatAddress(luckDog2)} 获取 ${luckDogReward2}leek
                     <br>
-                    第3名：${formatAddress(luckDog3)} 获取 ${luckDogReward3}leeks
+                    第3名：${formatAddress(luckDog3)} 获取 ${luckDogReward3}leek
                     `);
                 });
                 getOpenPool(fromAddr);
