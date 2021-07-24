@@ -5,7 +5,10 @@ const hpABI = [{"inputs":[{"internalType":"contract Leeks","name":"_contractAddr
 function formatAddress(_address) {
     return  _address.substring(0,4) + '*****' + _address.substring(_address.length - 4, _address.length)
 };
-
+function formatCoinXS(_num) {
+    let n = new BigNumber(_num);
+    return n.dividedBy(sc).toFixed(2).toString();
+}
 const sc = '1000000000000000000';
 function formatCoin(_num, _t) {
     let n = new BigNumber(_num);
@@ -328,7 +331,7 @@ function openTime() {
                                tr += `
                                <div>
                                     <span>${formatAddress(_v)}</span>
-                                    <span>${openReward}&nbsp;leek</span>
+                                    <span>${formatCoinXS(openReward)}&nbsp;leek</span>
                                 </div>
                                `
                             })
@@ -343,22 +346,22 @@ function openTime() {
                              <div>
                                  <span>抢头奖：</span>
                                  <span>${formatAddress(openUser)}</span>
-                                 <span>${openReward}&nbsp;leek</span>
+                                 <span>${formatCoinXS(openReward)}&nbsp;leek</span>
                              </div>
                             <div>
                                  <span>韭神：</span>
                                  <span>${formatAddress(luckDog1)}</span>
-                                 <span>${luckDogReward1}&nbsp;leek</span>
+                                 <span>${formatCoinXS(luckDogReward1)}&nbsp;leek</span>
                             </div>
                             <div>
                                  <span>韭仙：</span>
                                  <span>${formatAddress(luckDog2)}</span>
-                                 <span>${luckDogReward2}&nbsp;leek</span>
+                                 <span>${formatCoinXS(luckDogReward2)}&nbsp;leek</span>
                              </div>
                              <div>
                                  <span>韭鬼：</span>
                                  <span>${formatAddress(luckDog3)}</span>
-                                 <span>${luckDogReward3}&nbsp;leek</span>
+                                 <span>${formatCoinXS(luckDogReward3)}&nbsp;leek</span>
                              </div>
                              <p class='history-dog-luckname'>幸运奖励</p>
                             ${tr}
@@ -419,14 +422,14 @@ function openTime() {
                     } = data[data.length - 2];
                     loading.addClass('luck-open-box');
                     loadingIng.hide();
-                    luckOpenMes.html(`恭喜你，抢到头奖!</br>获取${openReward}leek`);
+                    luckOpenMes.html(`恭喜你，抢到头奖!</br>获取${formatCoinXS(openReward)}leek`);
                     luckOpen.css('display', 'flex');
                     luckOpenOther.html(`
-                    第1名：${formatAddress(luckDog1)} 获取 ${luckDogReward1}leek
+                    第1名：${formatAddress(luckDog1)} 获取 ${formatCoinXS(luckDogReward1)}leek
                     <br>
-                    第2名：${formatAddress(luckDog2)} 获取 ${luckDogReward2}leek
+                    第2名：${formatAddress(luckDog2)} 获取 ${formatCoinXS(luckDogReward2)}leek
                     <br>
-                    第3名：${formatAddress(luckDog3)} 获取 ${luckDogReward3}leek
+                    第3名：${formatAddress(luckDog3)} 获取 ${formatCoinXS(luckDogReward3)}leek
                     `);
                 });
                 getOpenPool(fromAddr);
