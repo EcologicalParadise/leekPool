@@ -247,7 +247,6 @@ function openTime() {
         
         function getBalance(_fromAddr) {
             LeeksContract.methods.balanceOf(_fromAddr).call({from: _fromAddr}).then(function (data) {
-                console.log(data)
                 let _c = formatCoin(data).toString();
                 let _v = Number(_c).toFixed(2);
                 myCount.text(_v);
@@ -274,7 +273,7 @@ function openTime() {
                     }
                 });
                 myToken.text(_myCount);
-                allLeek.text(_count / 10);
+                // allLeek.text(_count / 10);
                 // estructionLeek.text(_count * 0.1);
                 let newDh = [];
                 for (let key in dh) {
@@ -294,6 +293,9 @@ function openTime() {
                 if (isScrollStart === false) {
                     scrollStart(dharr);
                 }
+            });
+            LeeksContract.methods.balanceOf(hpContractAddress).call({from: _fromAddr}).then(function (data) {
+                allLeek.text( new BigNumber(data).dividedBy(sc).toFixed(2).toString())
             });
         };
         getLucks(fromAddr);
